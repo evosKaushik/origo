@@ -1,7 +1,14 @@
 {
-  "name": "create-origo-app",
+  "name": "@evoskaushik/create-origo-app",
   "version": "0.1.0",
   "description": "A modern project scaffolding CLI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evosKaushik/origo.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
   "bin": {
     "origo": "dist/index.js"
