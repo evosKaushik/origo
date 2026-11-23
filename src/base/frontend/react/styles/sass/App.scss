@@ -1,0 +1,231 @@
+$brand: #781bff;
+$brand-light: #9b42ff;
+$brand-dark: #6412ed;
+$background: #030309;
+$text: #ffffff;
+$muted: #c4bed8;
+
+.app {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 100% 25%, rgba(65, 0, 150, 0.12), transparent 35%),
+    $background;
+  color: $text;
+
+  .background-glow {
+    position: absolute;
+    pointer-events: none;
+    border: 2px solid rgba(112, 24, 255, 0.75);
+    border-radius: 50%;
+    filter: blur(0.3px);
+
+    &.glow-top {
+      top: -470px;
+      left: -300px;
+      width: 650px;
+      height: 650px;
+      box-shadow: 0 0 80px rgba(104, 0, 255, 0.2);
+    }
+
+    &.glow-right {
+      top: 10%;
+      right: -420px;
+      width: 500px;
+      height: 500px;
+      border-color: rgba(93, 0, 220, 0.2);
+    }
+
+    &.glow-bottom {
+      right: -300px;
+      bottom: -750px;
+      width: 850px;
+      height: 850px;
+      box-shadow: 0 0 90px rgba(104, 0, 255, 0.25);
+    }
+  }
+
+  .welcome-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1500px;
+    padding: 90px 7%;
+    text-align: center;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 48px;
+    }
+
+    .origo-logo {
+      display: block;
+      width: 420px;
+      max-width: 85%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .hero {
+      h1 {
+        font-size: clamp(42px, 5.5vw, 82px);
+        font-weight: 800;
+        letter-spacing: -3px;
+
+        span {
+          background: linear-gradient(110deg, $brand-light, $brand-dark, #a65bff);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+      }
+
+      .subtitle {
+        margin-top: 12px;
+        color: #b9b2d2;
+        font-size: clamp(16px, 2vw, 30px);
+      }
+    }
+
+    .counter-section {
+      margin-top: 40px;
+
+      .api-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .counter {
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        padding: 14px 24px;
+        border: 1px solid rgba(130, 80, 255, 0.2);
+        border-radius: 50px;
+        color: $text;
+        background: rgba(15, 12, 27, 0.85);
+        font-size: 21px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: #7625ff;
+          background: rgba(91, 25, 180, 0.2);
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          transform: scale(0.97);
+        }
+
+        .status-dot {
+          width: 17px;
+          height: 17px;
+          border-radius: 50%;
+          background: #20e879;
+          box-shadow: 0 0 12px rgba(32, 232, 121, 0.3);
+        }
+      }
+
+      .instruction {
+        margin-top: 24px;
+        color: $muted;
+        font-size: 21px;
+
+        code {
+          padding: 5px 10px;
+          border-radius: 8px;
+          color: #ad69ff;
+          background: rgba(123, 48, 255, 0.1);
+          font-family: monospace;
+        }
+      }
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 85px;
+      color: $muted;
+      font-size: 19px;
+
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      strong {
+        color: #a34cff;
+        font-weight: 600;
+      }
+
+      .heart {
+        display: inline-block;
+        margin: 0 14px;
+        color: $brand;
+        font-size: 27px;
+      }
+
+      .footer-line {
+        width: 125px;
+        height: 1px;
+        background: rgba(155, 130, 200, 0.3);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      padding: 70px 5%;
+    }
+
+    @media (max-width: 768px) {
+      .origo-logo {
+        width: 320px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      padding: 65px 22px;
+
+      .brand {
+        margin-bottom: 45px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .subtitle {
+        line-height: 1.6;
+      }
+
+      .instruction {
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .origo-logo {
+      width: 250px;
+    }
+  }
+}

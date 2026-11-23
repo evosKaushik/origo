@@ -10,5 +10,17 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": [
+    "src/base/**/*.tsx",
+    "src/base/**/*.jsx",
+    "src/base/**/*.css",
+    "src/base/**/*.html",
+    "src/base/**/*.svg",
+    "src/base/**/*.ico",
+    "src/base/backend/express/typescript/src/**/*.ts",
+    "src/base/backend/express/javascript/src/**/*.js",
+    "src/base/backend/fastify/typescript/src/**/*.ts",
+    "src/base/backend/fastify/javascript/src/**/*.js"
+  ]
 }

@@ -9,6 +9,10 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
+  "homepage": "https://github.com/evosKaushik/origo#readme",
+  "bugs": {
+    "url": "https://github.com/evosKaushik/origo/issues"
+  },
   "type": "module",
   "bin": {
     "origo": "dist/index.js"
@@ -17,15 +21,32 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "node scripts/build.js",
     "start": "npm run build && node dist/index.js",
     "dev": "concurrently \"tsc --watch\" \"node --watch dist/index.js\"",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "preview": "npm run build && npm pack --dry-run",
+    "pack:local": "npm run build && npm pack",
+    "try:cli": "npm run build && node dist/index.js",
     "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=20"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "scaffolding",
+    "generator",
+    "react",
+    "vite",
+    "express",
+    "fastify",
+    "typescript",
+    "tailwind",
+    "prisma",
+    "mongoose"
+  ],
   "devDependencies": {
     "@types/node": "^26.6.6",
     "concurrently": "^10.0.7",
@@ -34,6 +55,7 @@
   "dependencies": {
     "@inquirer/prompts": "^8.8.0",
     "commander": "^15.1.0",
-    "picocolors": "^1.1.1"
+    "picocolors": "^1.1.1",
+    "ts-morph": "^28.0.0"
   }
 }

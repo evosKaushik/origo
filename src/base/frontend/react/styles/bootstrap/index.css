@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  background: #030309;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #030309;
+}
+
+.app-shell {
+  padding: 90px 7%;
+  background:
+    radial-gradient(ellipse at 100% 25%, rgba(65, 0, 150, 0.12), transparent 35%),
+    #030309;
+}
+
+.welcome-container {
+  z-index: 2;
+  max-width: 1500px;
+}
+
+.background-glow {
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid rgba(112, 24, 255, 0.75);
+  border-radius: 50%;
+}
+
+.glow-top {
+  top: -470px;
+  left: -300px;
+  width: 650px;
+  height: 650px;
+  box-shadow: 0 0 80px rgba(104, 0, 255, 0.2);
+}
+
+.glow-right {
+  top: 10%;
+  right: -420px;
+  width: 500px;
+  height: 500px;
+  border-color: rgba(93, 0, 220, 0.2);
+}
+
+.glow-bottom {
+  right: -300px;
+  bottom: -750px;
+  width: 850px;
+  height: 850px;
+  box-shadow: 0 0 90px rgba(104, 0, 255, 0.25);
+}
+
+.origo-logo {
+  display: block;
+  width: 420px;
+  max-width: 85%;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-title {
+  font-size: clamp(42px, 5.5vw, 82px);
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1.05;
+}
+
+.hero-accent {
+  background: linear-gradient(110deg, #9b42ff, #6412ed, #a65bff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: #b9b2d2;
+  font-size: clamp(16px, 2vw, 30px);
+}
+
+.counter-button {
+  border: 1px solid rgba(130, 80, 255, 0.2);
+  color: #ffffff;
+  background: rgba(15, 12, 27, 0.85);
+  font-size: 21px;
+  transition: all 0.2s ease;
+}
+
+.counter-button:hover,
+.counter-button:focus {
+  border-color: #7625ff;
+  color: #ffffff;
+  background: rgba(91, 25, 180, 0.2);
+  transform: translateY(-2px);
+}
+
+.counter-button:active {
+  transform: scale(0.97);
+}
+
+.status-dot {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #20e879;
+  box-shadow: 0 0 12px rgba(32, 232, 121, 0.3);
+}
+
+.instruction {
+  color: #c4bed8;
+}
+
+.instruction-code {
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: #ad69ff;
+  background: rgba(123, 48, 255, 0.1);
+  font-family: monospace;
+}
+
+.footer {
+  color: #c4bddb;
+  font-size: 19px;
+}
+
+.footer strong {
+  color: #a34cff;
+}
+
+.heart {
+  display: inline-block;
+  color: #8d32ff;
+  font-size: 27px;
+}
+
+.footer-line {
+  width: 125px;
+  height: 1px;
+  background: rgba(155, 130, 200, 0.3);
+}
+
+@media (max-width: 768px) {
+  .origo-logo {
+    width: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding: 65px 22px;
+  }
+
+  .origo-logo {
+    width: 250px;
+  }
+
+  .hero-title {
+    letter-spacing: -1.5px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
