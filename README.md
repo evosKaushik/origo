@@ -88,13 +88,13 @@ This runs `npm pack --dry-run`, so you can confirm that only the intended files,
 ```bash
 npm run pack:local
 cd /tmp
-npx /absolute/path/to/origo/source-code/create-origo-app-0.1.1.tgz demo-app
+npx /absolute/path/to/origo/source-code/create-origo-app-0.1.2.tgz demo-app
 ```
 
 The exact `.tgz` name depends on the package version. You can also install it globally from the tarball:
 
 ```bash
-npm i -g /absolute/path/to/create-origo-app-0.1.1.tgz
+npm i -g /absolute/path/to/create-origo-app-0.1.2.tgz
 create-origo-app demo-app
 ```
 
