@@ -1,5 +1,5 @@
 {
-  "name": "@evoskaushik/create-origo-app",
+  "name": "create-origo-app",
   "version": "0.1.1",
   "description": "A modern project scaffolding CLI",
   "repository": {
@@ -7,7 +7,8 @@
     "url": "https://github.com/evosKaushik/origo.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "homepage": "https://github.com/evosKaushik/origo#readme",
   "bugs": {
@@ -15,10 +16,12 @@
   },
   "type": "module",
   "bin": {
+    "create-origo-app": "dist/index.js",
     "origo": "dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "!**/*.map"
   ],
   "scripts": {
     "build": "node scripts/build.js",
@@ -29,6 +32,7 @@
     "preview": "npm run build && npm pack --dry-run",
     "pack:local": "npm run build && npm pack",
     "try:cli": "npm run build && node dist/index.js",
+    "publish:npm": "npm publish --registry=https://registry.npmjs.org --access public",
     "prepublishOnly": "npm run build"
   },
   "engines": {
@@ -50,6 +54,7 @@
   "devDependencies": {
     "@types/node": "^26.6.6",
     "concurrently": "^10.0.7",
+    "terser": "^5.51.4",
     "typescript": "^7.0.2"
   },
   "dependencies": {

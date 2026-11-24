@@ -40,9 +40,9 @@ const commonFiles: BaseFileDefinition[] = [
     kind: "text",
   },
   {
-    source: "frontend/shared/favicon.ico",
-    destination: "public/favicon.ico",
-    kind: "binary",
+    source: "frontend/shared/favicon.svg",
+    destination: "public/favicon.svg",
+    kind: "text",
   },
 ];
 

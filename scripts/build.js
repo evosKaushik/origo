@@ -22,3 +22,8 @@ await cp(baseSource, baseDestination, {
   recursive: true,
   filter: (source) => !source.endsWith("manifest.ts"),
 });
+
+await execFileAsync(process.execPath, [path.join(root, "scripts", "minify.js")], {
+  cwd: root,
+  stdio: "inherit",
+});

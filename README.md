@@ -1,6 +1,6 @@
 # Create Origo App
 
-`@evoskaushik/create-origo-app` is an interactive CLI for generating ready-to-run React and Node.js projects. It creates files in memory, applies stack-specific transformations, and writes a clean project layout with resolved dependencies and automatic installs.
+`create-origo-app` is an interactive CLI for generating ready-to-run React and Node.js projects. It creates files in memory, applies stack-specific transformations, and writes a clean project layout with resolved dependencies and automatic installs.
 
 ## Requirements
 
@@ -10,41 +10,43 @@
 
 ## Install and use
 
-After the package is published or available from your configured registry:
+Install globally from npm:
 
 ```bash
-npm i -g @evoskaushik/create-origo-app@latest
-origo my-app
+npm i -g create-origo-app@latest
+create-origo-app my-app
 ```
 
 You can also run it without a global install:
 
 ```bash
-npx @evoskaushik/create-origo-app my-app
+npx create-origo-app my-app
+```
+
+Or use the npm create shortcut:
+
+```bash
+npm create origo-app@latest my-app
 ```
 
 The CLI accepts:
 
 ```bash
-origo <project-name> [project-path]
+create-origo-app <project-name> [project-path]
 ```
 
 Examples:
 
 ```bash
-origo my-app
-origo my-app ./workspace
+create-origo-app my-app
+create-origo-app my-app ./workspace
 ```
 
-If this package is installed from GitHub Packages, configure npm first:
+The legacy `origo` binary alias is also installed for backward compatibility:
 
 ```bash
-# .npmrc in your home directory or project directory
-@evoskaushik:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+origo my-app
 ```
-
-`GITHUB_TOKEN` must be able to read packages. For public usage, the package visibility must also allow anonymous or authenticated reads.
 
 ## Local development setup
 
@@ -67,6 +69,9 @@ Useful scripts:
 | `npm run try:cli` | Build and start the local interactive CLI |
 | `npm run preview` | Build and preview the npm tarball contents with `npm pack --dry-run` |
 | `npm run pack:local` | Build and create a local `.tgz` package for install testing |
+| `npm run publish:npm` | Publish the unscoped package to npmjs |
+
+The build compiles TypeScript with source maps, then minifies `dist/**/*.js` while leaving template files under `dist/base` unchanged. Source maps are generated locally for debugging and excluded from the published npm package to keep installs small.
 
 ## Preview the package before publishing
 
@@ -83,14 +88,14 @@ This runs `npm pack --dry-run`, so you can confirm that only the intended files,
 ```bash
 npm run pack:local
 cd /tmp
-npx /absolute/path/to/origo/source-code/evoskaushik-create-origo-app-0.1.0.tgz demo-app
+npx /absolute/path/to/origo/source-code/create-origo-app-0.1.1.tgz demo-app
 ```
 
 The exact `.tgz` name depends on the package version. You can also install it globally from the tarball:
 
 ```bash
-npm i -g /absolute/path/to/evoskaushik-create-origo-app-0.1.0.tgz
-origo demo-app
+npm i -g /absolute/path/to/create-origo-app-0.1.1.tgz
+create-origo-app demo-app
 ```
 
 ### Link the local package
@@ -99,13 +104,13 @@ origo demo-app
 npm run build
 npm link
 cd /tmp
-origo linked-app
+create-origo-app linked-app
 ```
 
 Clean up with:
 
 ```bash
-npm unlink -g @evoskaushik/create-origo-app
+npm unlink -g create-origo-app
 ```
 
 ## Features
@@ -302,11 +307,11 @@ Currently limited or planned:
 
 ## Maintainer publishing
 
-Publishing is configured for GitHub Packages through `publishConfig`:
+Publishing is configured for npmjs through `publishConfig`, and the package is public:
 
 ```bash
 npm version patch
-npm publish
+npm run publish:npm
 ```
 
-Package visibility is controlled in the registry settings. Use `npm run preview` before publishing to confirm the tarball contents.
+If npm asks for two-factor authentication, use the OTP from your npm account authenticator app. Use `npm run preview` before publishing to confirm the tarball contents.
